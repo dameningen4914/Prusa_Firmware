@@ -7417,6 +7417,9 @@ void menu_lcd_lcdupdate_func(void)
 		}
 		else
 		{
+			if(GetPrinterState() == PrinterState::IsSDPrinting) {
+				lcd_print_stop();
+			}
 			card.release();
 			LCD_MESSAGERPGM(_T(MSG_SD_REMOVED));
 		}
